@@ -41,6 +41,7 @@ h2 {
   font-size: 24px;
   font-weight: 400;
   color: #5c47d3a2;
+  white-space: nowrap;
 }
 
 button {
@@ -68,6 +69,8 @@ button:hover {
 header {
   width: 100%;
   height: 130px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -209,7 +212,7 @@ main {
   }
 
   header > img {
-    width: 54px;
+    width: 44px;
     height: auto;
   }
 
