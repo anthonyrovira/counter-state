@@ -12,6 +12,8 @@ import { Provider } from "react-redux";
 import { reduxStore } from "./stores/reduxStores";
 //! *********** END  ***********/
 
+import { CounterProvider } from "./stores/contextStore";
+
 function App() {
   const [value, setValue] = useState(0);
 
@@ -22,8 +24,10 @@ function App() {
         <main>
           <CounterButtonsRedux />
           <CounterButtonsZustand />
-          <CounterButtons value={value} setValue={setValue} />
-          <ResetButton setValue={setValue} />
+          <CounterProvider>
+            <CounterButtons value={value} setValue={setValue} />
+            <ResetButton setValue={setValue} />
+          </CounterProvider>
         </main>
         <Footer />
       </div>

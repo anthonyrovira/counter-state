@@ -1,24 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import { CounterContext } from "../stores/contextStore";
 import { useDispatch } from "react-redux";
-
 import { useZustand } from "../stores/zustandStores";
 
-const ResetButton = (props) => {
+const ResetButton = () => {
+  const { dispatch } = useContext(CounterContext);
+
   //! *********** REDUX  ***********/
-  const dispatch = useDispatch();
+  const dispatchRedux = useDispatch();
   //! *********** END  ***********/
 
   //! *********** ZUSTAND  ***********/
   const reset = useZustand((state) => state.reset);
   //! *********** END  ***********/
 
-  let { setValue } = props;
-
   const handleReset = () => {
-    dispatch({ type: "RESET" });
+    dispatchRedux({ type: "RESET" });
     reset();
-    setValue(0);
+    dispatch({ type: "RESET" });
   };
 
   return (

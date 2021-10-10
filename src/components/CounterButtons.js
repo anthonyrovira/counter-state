@@ -1,38 +1,41 @@
-import React from "react";
+import React, { useContext } from "react";
 import DisplayCounter from "./DisplayCounter";
 
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const CounterButtons = ({ value, setValue }) => {
+import { CounterContext } from "../stores/contextStore";
+
+const CounterButtons = ({ value }) => {
+  const { state, dispatch } = useContext(CounterContext);
+
+  const { count, buttonTitle } = state;
+
   const handleIncrement = () => {
-    setValue((prevValue) => {
-      if (prevValue === 10) {
-        return prevValue;
-      }
-      return prevValue + 1;
-    });
+    if (count < 10) {
+      dispatch({ type: "INCREMENT" });
+    }
   };
+
   const handleDecrement = () => {
-    setValue((prevValue) => {
-      if (prevValue === 0) {
-        return prevValue;
-      }
-      return prevValue - 1;
-    });
+    if (count > 0) {
+      dispatch({ type: "DECREMENT" });
+    }
   };
-  console.log("useState: " + value);
+
+  console.log("useContext: " + count);
+
   return (
     <div className="counter">
-      <h2 className="counter-title">useState : </h2>
+      <h2 className="counter-title">{buttonTitle}</h2>
 
       <div className="counter-value-container">
         <button onClick={handleDecrement}>
           <FontAwesomeIcon icon={faMinus} size="4x" className="icons" />
         </button>
 
-        <DisplayCounter value={value} />
+        <DisplayCounter value={count} />
 
         <button onClick={handleIncrement}>
           <FontAwesomeIcon icon={faPlus} size="4x" className="icons" />

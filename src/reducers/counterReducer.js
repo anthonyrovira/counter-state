@@ -1,33 +1,14 @@
-const initialState = {
-  counter: 0,
-  buttonTitle: "Redux : ",
-};
-
-const counterReducer = (state = initialState, action) => {
+const contextReducer = (state, action) => {
   switch (action.type) {
     case "INCREMENT":
-      let increasingValue = state.counter + 1;
-      state.counter >= 10 && (increasingValue = 10);
-      return {
-        ...state,
-        counter: increasingValue,
-      };
+      return { ...state, count: state.count + 1 };
     case "DECREMENT":
-      let decreasingValue = state.counter - 1;
-      state.counter <= 0 && (decreasingValue = 0);
-      return {
-        ...state,
-        counter: decreasingValue,
-      };
+      return { ...state, count: state.count - 1 };
     case "RESET":
-      return {
-        ...state,
-        counter: 0,
-      };
-
+      return { ...state, count: 0 };
     default:
-      return state;
+      return { ...state };
   }
 };
 
-export default counterReducer;
+export default contextReducer;
