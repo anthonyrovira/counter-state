@@ -3,6 +3,7 @@
 <div align="center">
 A simple demo project that implements counters using different state management technologies for each.
 </div>
+<br/>
 
 ![thumbnail](thumbnail.png)
 
