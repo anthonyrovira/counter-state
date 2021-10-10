@@ -4,6 +4,8 @@
 A simple demo project that implements counters using different state management technologies for each.
 </div>
 
+![thumbnail](thumbnail.png)
+
 ## Live demo
 URL: 
 
