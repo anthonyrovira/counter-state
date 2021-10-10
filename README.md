@@ -8,7 +8,7 @@ A simple demo project that implements counters using different state management 
 ![thumbnail](thumbnail.png)
 
 ## Live demo
-URL: 
+URL: [https://counter-state-management.netlify.app/](https://counter-state-management.netlify.app/)
 
 ## About The Project
 This project has been developped using ReactJS. This is a very simple architecture made for learning purposes.
