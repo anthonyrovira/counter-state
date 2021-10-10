@@ -1,7 +1,7 @@
 import { createStore } from "redux";
-import counterReducer from "../reducers/counterReducer";
+import counterReducerRedux from "../reducers/counterReducerRedux";
 
 export const reduxStore = createStore(
-  counterReducer,
+  counterReducerRedux,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
