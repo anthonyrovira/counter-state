@@ -7,7 +7,7 @@ const contextReducer = (state, action) => {
     case "RESET":
       return { ...state, count: 0 };
     default:
-      return { ...state };
+      throw new Error('unknown action type');
   }
 };
 
