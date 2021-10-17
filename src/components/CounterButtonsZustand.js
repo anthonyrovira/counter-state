@@ -5,7 +5,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { useZustand } from "../stores/zustandStores";
+import { useZustand } from "../stores/zustandStore";
 
 const CounterButtonZustand = () => {
   const buttonTitle = useZustand((state) => state.buttonTitle);

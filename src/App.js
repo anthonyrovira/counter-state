@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 
 //! *********** REDUX ***********/
 import { Provider } from "react-redux";
-import { reduxStore } from "./stores/reduxStores";
+import { reduxStore } from "./stores/reduxStore";
 //! *********** END  ***********/
 
 import { CounterProvider } from "./stores/contextStore";
