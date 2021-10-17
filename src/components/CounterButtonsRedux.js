@@ -5,16 +5,17 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { increment, decrement } from "../features/counterSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const CounterButtonRedux = () => {
   const dispatch = useDispatch();
 
   const counterValue = useSelector((state) => {
-    return state.counter;
+    return state.counter.value;
   });
-  const counterBtnTitle = useSelector((state) => {
-    return state.buttonTitle;
+  const counterTitle = useSelector((state) => {
+    return state.counter.title;
   });
 
   useEffect(() => {
@@ -23,12 +24,12 @@ const CounterButtonRedux = () => {
 
   return (
     <div className="counter">
-      <h2 className="counter-title">{counterBtnTitle}</h2>
+      <h2 className="counter-title">{counterTitle}</h2>
 
       <div className="counter-value-container">
         <button
           onClick={() => {
-            dispatch({ type: "DECREMENT" });
+            dispatch(decrement());
           }}
         >
           <FontAwesomeIcon icon={faMinus} size="4x" className="icons" />
@@ -38,7 +39,7 @@ const CounterButtonRedux = () => {
 
         <button
           onClick={() => {
-            dispatch({ type: "INCREMENT" });
+            dispatch(increment());
           }}
         >
           <FontAwesomeIcon icon={faPlus} size="4x" className="icons" />

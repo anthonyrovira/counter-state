@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 
 import { CounterContext } from "../stores/contextStore";
+import { resetRedux } from "../features/counterSlice";
 import { useDispatch } from "react-redux";
-import { useZustand } from "../stores/zustandStores";
+import { useZustand } from "../stores/zustandStore";
 
 const ResetButton = () => {
   const { dispatch } = useContext(CounterContext);
@@ -16,7 +17,7 @@ const ResetButton = () => {
   //! *********** END  ***********/
 
   const handleReset = () => {
-    dispatchRedux({ type: "RESET" });
+    dispatchRedux(resetRedux());
     reset();
     dispatch({ type: "RESET" });
   };
